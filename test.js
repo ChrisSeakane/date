@@ -12,7 +12,7 @@ describe(`integration app suite`, function () {
         const {body: appConfig} = await request(app).get(`/`)
             .expect(200).expect(`Content-Type`, /json/);
 
-        assert.equal(appConfig.name, `Public Holidays`);
+        assert.equal(appConfig.name, `Dates`);
         assert.match(appConfig.description, /public holidays/);
         assert.equal(appConfig.responsibleFor.dataSynchronization, true);
     });
