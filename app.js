@@ -67,6 +67,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
             console.log(url);
             (await (got(url).json())).forEach((item) => {
                 item.id = uuid(JSON.stringify(item));
+                console.log(item);
                 items.push(item);
             });
         }
