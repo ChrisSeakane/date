@@ -71,11 +71,11 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 item.id = uuid(JSON.stringify(item));
                 console.log(item);
                 //items.push(item);
-                const single = {"date":"2023-01-01","localName":"Nytårsdag","name":"New Year's Day","countryCode":"DK","fixed":true,"global":true,"counties":null,"launchYear":null,"types":["Public"]};
-                items.push(single);
             });
         }
     //}
+    const single = {"date":"2023-01-01","localName":"Nytårsdag","name":"New Year's Day","countryCode":"DK","fixed":true,"global":true,"counties":null,"launchYear":null,"types":["Public"]};
+    items.push(single);
     return res.json({items});
 }));
 
