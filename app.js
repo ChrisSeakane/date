@@ -65,7 +65,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const items = [];
     //for (const country of countries) {
     //    for (const year of yearRange) {
-            const url = `https://date.nager.at/api/v3/PublicHolidays/${year}/${country}`;
+            const url = `https://date.nager.at/api/v3/PublicHolidays/2023/DK`;
             console.log(url);
             (await (got(url).json())).forEach((item) => {
                 item.id = uuid(JSON.stringify(item));
