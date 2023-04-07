@@ -1,25 +1,22 @@
 {
   "types": [
     {
-      "id": "literature",
-      "name": "Literature"
-    },
-    {
-      "id": "author",
-      "name": "Author"
-    },
-    {
-      "id": "venue",
-      "name": "Venue"
-    },
-    {
-      "id": "tag",
-      "name": "Tag"
-    },
-    {
-      "id": "note",
-      "name": "Note"
+      "id": "date",
+      "name": "Date"
     }
   ],
-  "filters" : []
+  "filters" : [
+    {
+      "id": "from",
+      "type": "number",
+      "title": "Start Year",
+      "optional": true
+    },
+    {
+      "id": "to",
+      "type": "number",
+      "title": "End Year",
+      "optional": true
+    }
+  ]
 }
