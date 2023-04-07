@@ -75,7 +75,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
         }
     //}
     const single = {"date":"2023-01-01","localName":"Nytårsdag","name":"New Year's Day","countryCode":"DK","fixed":true,"global":true,"counties":null,"launchYear":null,"types":["Public"]};
-    const single.id = uuid(JSON.stringify(single));
+    single.id = uuid(JSON.stringify(single));
     items.push(single);
     return res.json({items});
 }));
