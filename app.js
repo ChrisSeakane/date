@@ -70,13 +70,15 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
             (await (got(url).json())).forEach((item) => {
                 item.id = uuid(JSON.stringify(item));
                 console.log(item);
-                //items.push(item);
+                items.push(item);
             });
         }
     //}
+    /*
     const single = {"date":"2023-01-01","name":"New Year's Day","countryCode":"DK"};
     single.id = uuid(JSON.stringify(single));
     items.push(single);
+    */
     return res.json({items});
 }));
 
