@@ -11,7 +11,7 @@ const getYearRange = filter => {
     let toYear = parseInt(filter.to);
 
     if (_.isNaN(fromYear)) {
-        fromYear = new Date().getFullYear() - 1;
+        fromYear = new Date().getFullYear();
     }
     if (_.isNaN(toYear)) {
         toYear = new Date().getFullYear();
