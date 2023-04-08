@@ -39,7 +39,7 @@
                targetName: `Weeks`,
                targetType: `date`,
                targetFieldId: `id`,
-           },
-       },
-   },
+           }
+       }
+   }
 }
