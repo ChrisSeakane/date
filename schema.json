@@ -24,7 +24,7 @@
                 "name": "Week",
                 "targetName": "Dates",
                 "targetType": "week",
-                "targetFieldId": "id"
+                "targetFieldId": "name"
             }
         }   
     },
