@@ -76,7 +76,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 items.push(item);
             });
             */
-            s = s.year(y)
+            s = s.year(year)
             console.log(s.leapYear()?366:365)
             for (let d = 1; d <= (s.leapYear()?3:3); d++) {
                 s = s.dayOfYear(d);
