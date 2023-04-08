@@ -78,8 +78,8 @@ app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
 
 app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const {requestedType, filter} = req.body;
-    if (requestedType !== `date`) {
-        throw new Error(`Only dates database can be synchronized`);
+    if (requestedType !== `date` && requestedType != `week`) {
+        throw new Error(`Only these database can be synchronized`);
     }
     /*
     if (_.isEmpty(filter.countries)) {
@@ -88,27 +88,37 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     */
     const {timezone} = filter;
     const yearRange = getYearRange(filter);
-    const items = [];
-    let s = spacetime('2000',timezone);
-    //s = s.timezone(timezone);
-    //for (const country of countries) {
-        for (const year of yearRange) {
-            s = s.year(year)
-            console.log(s.leapYear()?366:365)
-            for (let d = 1; d <= (s.leapYear()?3:3); d++) {
-                s = s.dayOfYear(d);
-                const item = s.json();
-                console.log(item);
-                item.date = item.year + "-" + (item.month +1) + "-" + item.date;
-                item.name = "Dummy" + d;
-                item.timezone = s.timezone().name;
-                //item.timezone = timezone;
-                item.id = uuid(JSON.stringify(item));
-                items.push(item);
+    
+    if (requestedType == `date`){
+        const items = [];
+        let s = spacetime('2000',timezone);
+        //s = s.timezone(timezone);
+        //for (const country of countries) {
+            for (const year of yearRange) {
+                s = s.year(year)
+                console.log(s.leapYear()?366:365)
+                for (let d = 1; d <= (s.leapYear()?3:3); d++) {
+                    s = s.dayOfYear(d);
+                    const item = s.json();
+                    console.log(item);
+                    item.date = item.year + "-" + (item.month +1) + "-" + item.date;
+                    item.name = "Dummy" + d;
+                    item.timezone = s.timezone().name;
+                    //item.timezone = timezone;
+                    item.id = uuid(JSON.stringify(item));
+                    items.push(item);
+                }
             }
-        }
-    //}
-    return res.json({items});
+        //}
+        return res.json({items});
+    }
+    else if (requestedType == `week`){
+        const items = [];
+        item.number = 1;
+        item.name = "Week 1";
+        item.id = uuid(JSON.stringify(item));
+        items.push(item);
+    }
 }));
 
 app.use(function (req, res, next) {
