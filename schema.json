@@ -28,7 +28,18 @@
         },
         "number": {
             "name": "Number",
-            "type": "number",
-        }
+            "type": "number"
+        },
+        "dateId": {
+            "name": "Date Id",
+            "type": "text",
+            "relation": {
+                "cardinality": "many-to-one",
+                "name": "Date",
+                "targetName": "Weeks",
+                "targetType": "date",
+                "targetFieldId": "id"
+            }
+        }    
     }
 }
