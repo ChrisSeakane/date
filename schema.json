@@ -17,7 +17,7 @@
             "type": "text"
         },
         "week": {
-            "name": "Week",
+            "name": "WeekLink",
             "type": "number",
             "relation": {
                 "cardinality": "many-to-one",
