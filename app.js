@@ -55,7 +55,7 @@ app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
         {}
     );
     //const items = Object.keys(tzsOrdered);
-    const items = timezones.map((row) => ({title: row, value: row}));
+    const items = tzsOrdered.map((row) => ({title: row, value: row}));
     res.json({items});
 }));
 
