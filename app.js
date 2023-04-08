@@ -78,8 +78,8 @@ app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
 
 app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const {requestedType, filter} = req.body;
-    if (requestedType !== `holiday`) {
-        throw new Error(`Only holidays database can be synchronized`);
+    if (requestedType !== `date`) {
+        throw new Error(`Only dates database can be synchronized`);
     }
     /*
     if (_.isEmpty(filter.countries)) {
@@ -101,8 +101,8 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(item);
                 item.date = item.year + "-" + (item.month +1) + "-" + item.date;
                 item.name = "Dummy" + d;
-                item.countryCode = s.timezone().name;
-                //item.countryCode = timezone;
+                item.timezone = s.timezone().name;
+                //item.timezone = timezone;
                 item.id = uuid(JSON.stringify(item));
                 items.push(item);
             }
