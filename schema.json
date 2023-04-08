@@ -18,7 +18,7 @@
         },
         "weekId": {
             "name": "Week Id",
-            "type": "text",
+            "type": "number",
             "relation": {
                 "cardinality": "many-to-one",
                 "name": "Week",
