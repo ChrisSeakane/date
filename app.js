@@ -45,7 +45,7 @@ app.post(`/api/v1/synchronizer/schema`, (req, res) => res.json(schema));
 
 app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
     //const timezones = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
-    const timezones = ["Europe/Copenhagen"];
+    //const timezones = ["Europe/Copenhagen"];
     let tzs = spacetime().timezones;
     const tzsOrdered = Object.keys(tzs).sort().reduce(
         (obj, key) => { 
@@ -54,7 +54,7 @@ app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
         },
         {}
     );
-    //const items = Object.keys(tzsOrdered);
+    const timezones = Object.keys(tzsOrdered);
     //const items = tzsOrdered.map((row) => ({title: row, value: row}));
     const items = timezones.map((row) => ({title: row, value: row}));
     res.json({items});
