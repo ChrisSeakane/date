@@ -99,12 +99,13 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     }
     else if (requestedType == `week`){
         const items = [];
-        let item = {
+        const item = {
             number: 1,
             name: "Week 1",
             id: uuid(JSON.stringify(item))
         };
         items.push(item);
+        return res.json({items});
     }
 }));
 
