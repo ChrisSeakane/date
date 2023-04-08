@@ -49,30 +49,15 @@ function getTitle(name) {
 }
 
 app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
-    //const timezones = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
-    //const timezones = ["Europe/Copenhagen"];
+
     let tzs = spacetime().timezones;
     
     let temp = Object.keys(tzs);
     console.log(temp)
     temp = temp.map(getTitle)
     console.log(temp);
-
-    //tzs = tzs.map((tz) => {tz:'x'})
     const items = temp.sort((a, b) => (a.title > b.title) ? 1: -1);
     
-    /*
-    const tzsOrdered = Object.keys(tzs).sort().reduce(
-        (obj, key) => { 
-            obj[key] = tzs[key]; 
-            return obj;
-        },
-        {}
-    );
-    const timezones = Object.keys(tzsOrdered);
-    //const items = tzsOrdered.map((row) => ({title: row, value: row}));
-    const items = timezones.map((row) => ({title: row, value: row}));
-    */
     res.json({items});
 }));
 
@@ -114,9 +99,11 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     }
     else if (requestedType == `week`){
         const items = [];
-        item.number = 1;
-        item.name = "Week 1";
-        item.id = uuid(JSON.stringify(item));
+        const item = {
+            number: 1,
+            name: "Week 1",
+            id: uuid(JSON.stringify(item))
+        };
         items.push(item);
     }
 }));
