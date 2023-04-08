@@ -10,7 +10,7 @@
       },
       "date": {
         "name": "Date",
-        "type": "datebox"
+        "type": "date"
       },
       "countryCode": {
         "name": "Country Code",
