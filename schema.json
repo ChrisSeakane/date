@@ -15,7 +15,18 @@
         "timezone": {
             "name": "Timezone",
             "type": "text"
-        }
+        },
+        "weekId": {
+            "name": "Week Id",
+            "type": "text",
+            "relation": {
+                "cardinality": "many-to-one",
+                "name": "Week",
+                "targetName": "Dates",
+                "targetType": "week",
+                "targetFieldId": "id"
+            }
+        }   
     },
     "week": {
         "id": {
@@ -29,17 +40,6 @@
         "number": {
             "name": "Number",
             "type": "number"
-        },
-        "dateId": {
-            "name": "Date Id",
-            "type": "text",
-            "relation": {
-                "cardinality": "one-to-many",
-                "name": "Date",
-                "targetName": "Weeks",
-                "targetType": "date",
-                "targetFieldId": "id"
-            }
-        }    
+        } 
     }
 }
