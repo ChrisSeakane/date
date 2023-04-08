@@ -45,7 +45,7 @@ app.post(`/api/v1/synchronizer/schema`, (req, res) => res.json(schema));
 
 app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
     //const timezones = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
-    const timezones = ["name":"Europe/Copenhagen"];
+    const timezones = [{"name":"Europe/Copenhagen"}];
     const items = timezones.map((row) => ({title: row.name, value: row.name}));
     res.json({items});
 }));
