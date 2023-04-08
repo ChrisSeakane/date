@@ -8,7 +8,7 @@
   "filters": [
     {
       "id": "timezone",
-      "title": "Timezone (by default UTC used)",
+      "title": "Timezone (default:UTC)",
       "datalist": true,
       "optional": true,
       "type": "list"
@@ -16,13 +16,13 @@
     {
       "id": "from",
       "type": "number",
-      "title": "Start Year (by default current year used)",
+      "title": "Start Year (default: current year)",
       "optional": true
     },
     {
       "id": "to",
       "type": "number",
-      "title": "End Year (by default current year used)",
+      "title": "End Year (default: current year)",
       "optional": true
     }
 
