@@ -7,7 +7,7 @@
   ],
   "filters": [
     {
-      "id": "timezones",
+      "id": "timezone",
       "title": "Timezone (by default UTC used)",
       "datalist": true,
       "optional": true,
