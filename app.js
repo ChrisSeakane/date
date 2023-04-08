@@ -73,7 +73,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const {timezone} = filter;
     const yearRange = getYearRange(filter);
     const items = [];
-    let s = spacetime()
+    let s = spacetime(timezone)
     //for (const country of countries) {
         for (const year of yearRange) {
             s = s.year(year)
@@ -84,8 +84,8 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(item);
                 item.date = item.year + "-" + (item.month +1) + "-" + item.date;
                 item.name = "Dummy" + d;
-                //item.countryCode = s.timezone().name;
-                item.countryCode = timezone;
+                item.countryCode = s.timezone().name;
+                //item.countryCode = timezone;
                 item.id = uuid(JSON.stringify(item));
                 items.push(item);
             }
