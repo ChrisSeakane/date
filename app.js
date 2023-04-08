@@ -85,7 +85,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 item.date = item.year + "-" + (item.month +1) + "-" + item.date;
                 item.name = "Dummy" + d;
                 //item.countryCode = s.timezone().name;
-                item.countryCode = JSON.stringify(filter);
+                item.countryCode = timezone;
                 item.id = uuid(JSON.stringify(item));
                 items.push(item);
             }
