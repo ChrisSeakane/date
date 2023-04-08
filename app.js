@@ -61,7 +61,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
         throw new Error(`Countries filter should be specified`);
     }
     */
-    //const {countries} = filter;
+    const {timezones} = filter;
     const yearRange = getYearRange(filter);
     const items = [];
     let s = spacetime()
