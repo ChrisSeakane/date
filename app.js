@@ -73,6 +73,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     */
     const {timezone} = filter;
     const yearRange = getYearRange(filter);
+    //var linkID;
     
     if (requestedType == `date`){
         const items = [];
@@ -91,6 +92,12 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                     item.timezone = s.timezone().name;
                     //item.timezone = timezone;
                     item.id = uuid(JSON.stringify(item));
+                    const temp = {
+                        number: 1,
+                        name: "Week 1"
+                    };
+                    temp.id = uuid(JSON.stringify(temp));
+                    item.weekID = temp.id;
                     items.push(item);
                 }
             }
