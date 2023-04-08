@@ -43,13 +43,12 @@ app.post(`/api/v1/synchronizer/config`, (req, res) => res.json(syncConfig));
 const schema = require(`./schema.json`);
 app.post(`/api/v1/synchronizer/schema`, (req, res) => res.json(schema));
 
-/*
 app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
-    const countries = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
-    const items = countries.map((row) => ({title: row.name, value: row.countryCode}));
+    //const timezones = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
+    const timeszones = ["name":"Europe/Copenhagen"];
+    const items = timezones.map((row) => ({title: row.name, value: row.name}));
     res.json({items});
 }));
-*/
 
 app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const {requestedType, filter} = req.body;
