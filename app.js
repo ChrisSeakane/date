@@ -67,15 +67,6 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     let s = spacetime()
     //for (const country of countries) {
         for (const year of yearRange) {
-            /*
-            const url = `https://date.nager.at/api/v3/PublicHolidays/${year}/DK`;
-            console.log(url);
-            (await (got(url).json())).forEach((item) => {
-                item.id = uuid(JSON.stringify(item));
-                console.log(item);
-                items.push(item);
-            });
-            */
             s = s.year(year)
             console.log(s.leapYear()?366:365)
             for (let d = 1; d <= (s.leapYear()?3:3); d++) {
@@ -84,17 +75,12 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(item);
                 item.date = item.year + "-" + (item.month +1) + "-" + item.date;
                 item.name = "Dummy" + d;
-                item.countryCode = "DK"
+                item.countryCode = s.timezone();
                 item.id = uuid(JSON.stringify(item));
                 items.push(item);
             }
         }
     //}
-    /*
-    const single = {"date":"2023-01-01","name":"New Year's Day","countryCode":"DK"};
-    single.id = uuid(JSON.stringify(single));
-    items.push(single);
-    */
     return res.json({items});
 }));
 
