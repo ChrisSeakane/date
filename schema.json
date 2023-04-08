@@ -16,8 +16,8 @@
             "name": "Timezone",
             "type": "text"
         },
-        "weekId": {
-            "name": "Week Id",
+        "week": {
+            "name": "Week",
             "type": "number",
             "relation": {
                 "cardinality": "many-to-one",
