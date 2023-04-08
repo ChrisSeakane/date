@@ -101,9 +101,9 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
         const items = [];
         const item = {
             number: 1,
-            name: "Week 1",
-            id: uuid(JSON.stringify(item))
+            name: "Week 1"
         };
+        item.id = id: uuid(JSON.stringify(item));
         items.push(item);
         return res.json({items});
     }
