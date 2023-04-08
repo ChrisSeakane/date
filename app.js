@@ -97,7 +97,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                         name: "Week 1"
                     };
                     temp.id = uuid(JSON.stringify(temp));
-                    item.weekId = "Week 1";
+                    item.weekId = 1;
                     items.push(item);
                 }
             }
