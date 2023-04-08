@@ -73,7 +73,8 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const {timezone} = filter;
     const yearRange = getYearRange(filter);
     const items = [];
-    let s = spacetime(timezone)
+    let s = spacetime('2000',timezone);
+    //s = s.timezone(timezone);
     //for (const country of countries) {
         for (const year of yearRange) {
             s = s.year(year)
