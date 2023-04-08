@@ -64,6 +64,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     //const {countries} = filter;
     const yearRange = getYearRange(filter);
     const items = [];
+    let s = spacetime()
     //for (const country of countries) {
         for (const year of yearRange) {
             /*
@@ -75,7 +76,6 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 items.push(item);
             });
             */
-            let s = spacetime()
             s = s.year(y)
             console.log(s.leapYear()?366:365)
             for (let d = 1; d <= (s.leapYear()?3:3); d++) {
