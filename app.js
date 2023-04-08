@@ -43,10 +43,25 @@ app.post(`/api/v1/synchronizer/config`, (req, res) => res.json(syncConfig));
 const schema = require(`./schema.json`);
 app.post(`/api/v1/synchronizer/schema`, (req, res) => res.json(schema));
 
+function getTitle(name) {
+  let s = spacetime('2000',name);
+  return {title:s.timezone().name, value:name};
+}
+
 app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
     //const timezones = await (got(`https://date.nager.at/api/v3/AvailableCountries`).json());
     //const timezones = ["Europe/Copenhagen"];
     let tzs = spacetime().timezones;
+    
+    let temp = Object.keys(tzs);
+    console.log(temp)
+    temp = temp.map(getTitle)
+    console.log(temp);
+
+    //tzs = tzs.map((tz) => {tz:'x'})
+    const items = temp.sort((a, b) => (a.title > b.title) ? 1: -1);
+    
+    /*
     const tzsOrdered = Object.keys(tzs).sort().reduce(
         (obj, key) => { 
             obj[key] = tzs[key]; 
@@ -57,6 +72,7 @@ app.post(`/api/v1/synchronizer/datalist`, wrap(async (req, res) => {
     const timezones = Object.keys(tzsOrdered);
     //const items = tzsOrdered.map((row) => ({title: row, value: row}));
     const items = timezones.map((row) => ({title: row, value: row}));
+    */
     res.json({items});
 }));
 
