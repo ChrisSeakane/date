@@ -5,6 +5,7 @@ const wrap = require(`express-async-wrap`);
 const _ = require(`lodash`);
 const uuid = require(`uuid-by-string`);
 const got = require(`got`);
+const spacetime = require(`spacetime`);
 
 const getYearRange = filter => {
     let fromYear = parseInt(filter.from);
@@ -65,6 +66,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     const items = [];
     //for (const country of countries) {
         for (const year of yearRange) {
+            /*
             const url = `https://date.nager.at/api/v3/PublicHolidays/${year}/DK`;
             console.log(url);
             (await (got(url).json())).forEach((item) => {
@@ -72,6 +74,20 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(item);
                 items.push(item);
             });
+            */
+            let s = spacetime()
+            s = s.year(y)
+            console.log(s.leapYear()?366:365)
+            for (let d = 1; d <= (s.leapYear()?3:3); d++) {
+                s = s.dayOfYear(d);
+                const item = s.json();
+                console.log(item);
+                item.date = item.year + "-" + (item.month +1) + "-" + item.date;
+                item.name = "Dummy" + d;
+                item.countryCode = "DK"
+                item.id = uuid(JSON.stringify(single));
+                items.push(item);
+            }
         }
     //}
     /*
