@@ -2,11 +2,11 @@
   "types": [
     {
       "id": "date",
-      "name": "Dates"
+      "name": "Date"
     },
     {
       "id": "week",
-      "name":"Weeks"
+      "name":"Week"
     }    
   ],
   "filters": [
