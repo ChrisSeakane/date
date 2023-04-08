@@ -1,9 +1,13 @@
 {
   "types": [
     {
-      "id": "holiday",
-      "name": "Public Holiday"
-    }
+      "id": "date",
+      "name": "Dates"
+    },
+    {
+      "id": "week",
+      "name":"Weeks"
+    }    
   ],
   "filters": [
     {
