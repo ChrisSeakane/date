@@ -34,7 +34,7 @@
             "name": "Date Id",
             "type": "text",
             "relation": {
-                "cardinality": "many-to-one",
+                "cardinality": "one-to-many",
                 "name": "Date",
                 "targetName": "Weeks",
                 "targetType": "date",
