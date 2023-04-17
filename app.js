@@ -79,7 +79,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
             for (const year of yearRange) {
                 s = s.year(year)
                 console.log(s.leapYear()?366:365)
-                for (let d = 1; d <= (s.leapYear()?3:3); d++) {
+                for (let d = 1; d <= (s.leapYear()?2:2); d++) {
                     //s = s.dayOfYear(d);
                     if (d==1) {
                         s = spacetime.today(timezone);
