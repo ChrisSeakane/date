@@ -85,11 +85,11 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(s.leapYear()?366:365)
                 for (let d = 101; d <= (s.leapYear()?103:103); d++) {
                     s = s.dayOfYear(d);
-                    s = s.hour(0);
-                    s = s.goto('utc');
+                    //s = s.hour(0);
+                    //s = s.goto('utc');
                     const item = s.json();
                     console.log(item);
-                    item.date = item.year + "-" + (item.month +1) + "-" + item.date + " " + item.hour + ":00";
+                    item.date = item.year + "-" + (item.month +1) + "-" + item.date; // + " " + item.hour + ":00";
                     item.name = "Dummy" + d;
                     item.timezone = s.timezone().name;
                     //item.timezone = timezone;
