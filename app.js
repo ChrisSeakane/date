@@ -66,11 +66,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
     if (requestedType !== `date` && requestedType != `week`) {
         throw new Error(`Only these database can be synchronized`);
     }
-    /*
-    if (_.isEmpty(filter.countries)) {
-        throw new Error(`Countries filter should be specified`);
-    }
-    */
+
     const {timezone} = filter;
     const yearRange = getYearRange(filter);
     //var linkID;
