@@ -81,6 +81,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                 console.log(s.leapYear()?366:365)
                 for (let d = 106; d <= (s.leapYear()?108:108); d++) {
                     s = s.dayOfYear(d);
+                    s = spacetime.today(timezone)
                     //s = s.hour(0);
                     //s = s.goto('utc');
                     const item = s.json();
