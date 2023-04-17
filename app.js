@@ -87,7 +87,7 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
                     s = s.dayOfYear(d);
                     const item = s.json();
                     console.log(item);
-                    item.date = item.year + "-" + (item.month +1) + "-" + item.date;
+                    item.date = item.year + "-" + (item.month +1) + "-" + item.date + " 02:45";
                     item.name = "Dummy" + d;
                     item.timezone = s.timezone().name;
                     //item.timezone = timezone;
