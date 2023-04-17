@@ -79,9 +79,14 @@ app.post(`/api/v1/synchronizer/data`, wrap(async (req, res) => {
             for (const year of yearRange) {
                 s = s.year(year)
                 console.log(s.leapYear()?366:365)
-                for (let d = 106; d <= (s.leapYear()?108:108); d++) {
-                    s = s.dayOfYear(d);
-                    s = spacetime.today(timezone)
+                for (let d = 1; d <= (s.leapYear()?3:3); d++) {
+                    //s = s.dayOfYear(d);
+                    if (d==1) {
+                        s = spacetime.today(timezone);
+                    }
+                    else {
+                        s = spacetime.tomorrow(timezone);
+                    }
                     //s = s.hour(0);
                     //s = s.goto('utc');
                     const item = s.json();
