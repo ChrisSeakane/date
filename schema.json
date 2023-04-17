@@ -10,7 +10,8 @@
         },
         "date": {
             "name": "Date",
-            "type": "date"
+            "type": "date",
+            "subType": "day"
         },
         "timezone": {
             "name": "Timezone",
